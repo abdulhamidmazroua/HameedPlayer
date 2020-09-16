@@ -35,7 +35,7 @@ public class PlaylistFragmentDialog extends DialogFragment {
                 dialogInterface.dismiss();
                 EditText nameEditText = view.findViewById(R.id.playlist_name_input);
                 EditText descriptionEditText = view.findViewById(R.id.playlist_description_input);
-                 HomeFragment homeFragment = (HomeFragment) getParentFragment();
+                HomeFragment homeFragment = (HomeFragment) getParentFragment();
                 homeFragment.addPlaylist(nameEditText.getText().toString(), descriptionEditText.getText().toString());
             }
         });

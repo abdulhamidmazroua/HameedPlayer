@@ -5,10 +5,8 @@ import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.PopupMenu;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -53,13 +51,9 @@ public class HomeFragment extends Fragment implements PlaylistAdapter.ClickListe
         return root;
     }
 
-    private void buildRecycler() {
-        playlistRecycler.setAdapter(playlistAdapter);
-        int gridColumns = getActivity().getResources().getInteger(R.integer.grid_column_count);
-        playlistRecycler.setLayoutManager(new GridLayoutManager(getContext(), gridColumns));
-    }
+    // after getting the name and the description from the dialog fragment we add a new playlist
 
-    public void addPlaylist(String name, String description) {
+    void addPlaylist(String name, String description) {
         // Generating a random image for the playlist
         Random random = new Random();
         int n = random.nextInt(4);
@@ -70,15 +64,26 @@ public class HomeFragment extends Fragment implements PlaylistAdapter.ClickListe
         // Save changes to shared preferences
         saveChanges();
     }
+
+    private void buildRecycler() {
+        playlistRecycler.setAdapter(playlistAdapter);
+        int gridColumns = getActivity().getResources().getInteger(R.integer.grid_column_count);
+        playlistRecycler.setLayoutManager(new GridLayoutManager(getContext(), gridColumns));
+    }
+
+    // Loading the playlists when first creating the fragment
     private void loadPlaylists() {
         Gson gson = new Gson();
         String json = sharedPreferences.getString(PLAYLISTS_PREF, null);
-        Type type = new TypeToken<ArrayList<Playlist>>(){}.getType();
+        Type type = new TypeToken<ArrayList<Playlist>>() {
+        }.getType();
         playlists = gson.fromJson(json, type);
         if (playlists == null) {
             playlists = new ArrayList<>();
         }
     }
+
+    // saving the changes to a shared preferences
     private void saveChanges() {
         Gson gson = new Gson();
         String json = gson.toJson(playlists);
@@ -87,7 +92,7 @@ public class HomeFragment extends Fragment implements PlaylistAdapter.ClickListe
         editor.apply();
     }
 
-
+    // handling the deletion of a playlist
     @Override
     public void onDeleteClicked(int position) {
         playlists.remove(position);
