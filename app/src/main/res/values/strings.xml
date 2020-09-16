@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">HameedPlayer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_search">Search</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_recents">Recents</string>
+    <string name="menu_settings">Settings</string>
+    <string name="playlist_title">Playlist Title</string>
+    <string name="playlist_description">Playlist Description</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name">Name</string>
+    <string name="description">Description</string>
+    <string name="delete_playlist">Delete Playlist</string>
+
+    <array name="playlists_images">
+        <item>@drawable/music1</item>
+        <item>@drawable/music2</item>
+        <item>@drawable/music3</item>
+        <item>@drawable/music4</item>
+        <item>@drawable/music5</item>
+    </array>
+</resources>
