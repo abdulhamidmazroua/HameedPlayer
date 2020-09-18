@@ -1,4 +1,4 @@
-package com.mido.hameedplayer.ui.home;
+package com.mido.hameedplayer.ui.Playlists;
 
 import java.io.Serializable;
 

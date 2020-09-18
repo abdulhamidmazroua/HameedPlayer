@@ -3,13 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@id/nav_songs">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.mido.hameedplayer.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home">
+        android:id="@+id/nav_songs"
+        android:name="com.mido.hameedplayer.ui.songs.SongsFragment"
+        android:label="@string/menu_songs"
+        tools:layout="@layout/fragment_songs" />
+    <fragment
+        android:id="@+id/nav_playlist"
+        android:name="com.mido.hameedplayer.ui.Playlists.PlaylistFragment"
+        android:label="@string/menu_playlist"
+        tools:layout="@layout/fragment_playlists">
     </fragment>
     <fragment
         android:id="@+id/nav_recents"

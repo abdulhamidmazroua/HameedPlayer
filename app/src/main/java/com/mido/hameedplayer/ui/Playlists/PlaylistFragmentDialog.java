@@ -1,4 +1,4 @@
-package com.mido.hameedplayer.ui.home;
+package com.mido.hameedplayer.ui.Playlists;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -8,7 +8,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,9 +16,7 @@ import android.widget.EditText;
 
 import com.mido.hameedplayer.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class PlaylistFragmentDialog extends DialogFragment {
 
     @NonNull
@@ -35,7 +32,7 @@ public class PlaylistFragmentDialog extends DialogFragment {
                 dialogInterface.dismiss();
                 EditText nameEditText = view.findViewById(R.id.playlist_name_input);
                 EditText descriptionEditText = view.findViewById(R.id.playlist_description_input);
-                HomeFragment homeFragment = (HomeFragment) getParentFragment();
+                PlaylistFragment homeFragment = (PlaylistFragment) getParentFragment();
                 homeFragment.addPlaylist(nameEditText.getText().toString(), descriptionEditText.getText().toString());
             }
         });

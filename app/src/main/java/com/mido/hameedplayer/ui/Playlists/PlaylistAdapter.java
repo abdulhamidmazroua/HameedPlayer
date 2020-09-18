@@ -1,4 +1,4 @@
-package com.mido.hameedplayer.ui.home;
+package com.mido.hameedplayer.ui.Playlists;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -77,6 +77,8 @@ public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistAdapter.Playli
         public void onClick(View view) {
             if (view == itemView) {
                 Toast.makeText(context, "Hello", Toast.LENGTH_SHORT).show();
+                // delegating the handling task for the home fragment
+                refListener.get().onViewHolderClickedListener(getAdapterPosition());
             } else if (view == popupDelete) {
                 PopupMenu popup = new PopupMenu(context, view);
                 popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
@@ -97,9 +99,10 @@ public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistAdapter.Playli
             return false;
         }
     }
-    // This interface is used to define the callback methods for delegating the handling of any view in the ViewHandler
-    // inside the HomeFragment
+    // This interface is used to define the callback methods for delegating the handling of clicks on any view in the ViewHandler
+    // to the HomeFragment
     interface ClickListener{
+        void onViewHolderClickedListener(int position);
         void onDeleteClicked(int position);
     }
 }

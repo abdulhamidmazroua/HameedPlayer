@@ -1,4 +1,4 @@
-package com.mido.hameedplayer.ui.home;
+package com.mido.hameedplayer.ui.Playlists;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -22,7 +22,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class HomeFragment extends Fragment implements PlaylistAdapter.ClickListener {
+public class PlaylistFragment extends Fragment implements PlaylistAdapter.ClickListener {
     private static final String PLAYLISTS_PREF = "com.mid.hameedPlayer.ui.home.playlist.pref";
     private RecyclerView playlistRecycler;
     private ArrayList<Playlist> playlists;
@@ -33,7 +33,7 @@ public class HomeFragment extends Fragment implements PlaylistAdapter.ClickListe
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        View root = inflater.inflate(R.layout.fragment_playlists, container, false);
         sharedPreferences = getActivity().getSharedPreferences(SHARED_PREFS_FILE, Context.MODE_PRIVATE);
         playlistRecycler = root.findViewById(R.id.playlist_recycler);
         loadPlaylists();
@@ -90,6 +90,11 @@ public class HomeFragment extends Fragment implements PlaylistAdapter.ClickListe
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(PLAYLISTS_PREF, json);
         editor.apply();
+    }
+    // handling the click on the playlist
+    @Override
+    public void onViewHolderClickedListener(int position) {
+
     }
 
     // handling the deletion of a playlist
