@@ -5,9 +5,13 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_songs"
+            android:icon="@drawable/ic_song"
+            android:title="@string/menu_songs" />
+        <item
             android:id="@+id/nav_playlist"
             android:icon="@drawable/ic_home"
-            android:title="@string/menu_home" />
+            android:title="@string/menu_playlist" />
         <item
             android:id="@+id/nav_recents"
             android:icon="@drawable/ic_recents"

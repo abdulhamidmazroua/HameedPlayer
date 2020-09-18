@@ -30,4 +30,13 @@
         <item>@drawable/music4</item>
         <item>@drawable/music5</item>
     </array>
+    <array name="songs_images">
+        <item>@drawable/guitar</item>
+        <item>@drawable/city</item>
+        <item>@drawable/lion</item>
+        <item>@drawable/nature</item>
+        <item>@drawable/violin</item>
+        <item>@drawable/horror</item>
+        <item>@drawable/space</item>
+    </array>
 </resources>
