@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/playback_layout"
+    android:background="@drawable/road"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="bottom"
+    tools:context=".ui.songs.PlaybackFragment">
+
+    <SeekBar
+        android:id="@+id/song_seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:thumbTint="#FFFFFF"
+        android:progressTint="#00796B"
+        android:layout_alignStart="@id/linearLayout"
+        android:layout_above="@id/linearLayout"
+        android:progress="30"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="#99000000"
+        android:padding="16dp"
+        android:layout_alignParentBottom="true" >
+
+        <ImageButton
+            android:id="@+id/play_previous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_play_previous" />
+
+        <ImageButton
+            android:id="@+id/play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_play" />
+
+        <ImageButton
+            android:id="@+id/play_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_play_next" />
+
+    </LinearLayout>
+
+</LinearLayout>

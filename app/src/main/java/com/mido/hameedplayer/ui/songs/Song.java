@@ -4,15 +4,21 @@ import android.net.Uri;
 
 public class Song {
     Uri uri;
-    String Title;
+    String title;
+    int imageResourceId;
 
-    public Song(Uri uri, String title) {
+    public Song(Uri uri, String title, int imageResourceId) {
         this.uri = uri;
-        Title = title;
+        this.title = title;
+        this.imageResourceId = imageResourceId;
+    }
+
+    public int getImageResourceId() {
+        return imageResourceId;
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public Uri getUri() {

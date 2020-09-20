@@ -23,20 +23,13 @@
     <string name="music_name">Music Name</string>
     <string name="song_placeholder">songs name</string>
 
-    <array name="playlists_images">
-        <item>@drawable/music1</item>
-        <item>@drawable/music2</item>
-        <item>@drawable/music3</item>
-        <item>@drawable/music4</item>
-        <item>@drawable/music5</item>
-    </array>
     <array name="songs_images">
         <item>@drawable/guitar</item>
-        <item>@drawable/city</item>
+        <item>@drawable/loneliness</item>
         <item>@drawable/lion</item>
-        <item>@drawable/nature</item>
+        <item>@drawable/pattern</item>
         <item>@drawable/violin</item>
-        <item>@drawable/horror</item>
-        <item>@drawable/space</item>
+        <item>@drawable/earth</item>
+        <item>@drawable/concert</item>
     </array>
 </resources>

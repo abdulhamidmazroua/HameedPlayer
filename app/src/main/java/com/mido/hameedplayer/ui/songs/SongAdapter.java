@@ -1,8 +1,9 @@
 package com.mido.hameedplayer.ui.songs;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.media.MediaPlayer;
+import android.net.Uri;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,24 +11,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.mido.hameedplayer.R;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongHolder> {
     private ArrayList<Song> songs;
     private Context context;
-    private int counter = 0;
-    private TypedArray songsImageResources;
     MediaPlayer mediaPlayer;
     public SongAdapter(ArrayList<Song> songs, Context context) {
         this.songs = songs;
         this.context = context;
-        songsImageResources = context.getResources().obtainTypedArray(R.array.songs_images);
     }
 
     @NonNull
@@ -40,11 +38,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongHolder> {
     @Override
     public void onBindViewHolder(@NonNull SongHolder holder, int position) {
         Song currentSong = songs.get(position);
-        if  (counter > 6)
-            counter = 0;
-        int currentImage = songsImageResources.getResourceId(counter, 0);
-        counter++;
-        holder.bindTo(currentSong, currentImage);
+        holder.bindTo(currentSong);
 
     }
 
@@ -56,33 +50,40 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongHolder> {
     class SongHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView songsName;
         private ImageView songsImage;
-        private int counter = 0;
         public SongHolder(@NonNull View itemView) {
             super(itemView);
             this.songsName = itemView.findViewById(R.id.song_title);
             this.songsImage = itemView.findViewById(R.id.random_music_pic);
             itemView.setOnClickListener(this);
         }
-        void bindTo(Song currentSong, int imageId) {
+        void bindTo(Song currentSong) {
             songsName.setText(currentSong.getTitle());
-            Glide.with(context).load(imageId).into(songsImage);
+            Glide.with(context).load(currentSong.getImageResourceId()).into(songsImage);
         }
 
         @Override
         public void onClick(View view) {
-                if (mediaPlayer != null) {
-                    mediaPlayer.reset();
-                    try {
-                        mediaPlayer.setDataSource(context, songs.get(getLayoutPosition()).getUri());
-                        mediaPlayer.prepare();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-                else {
-                    mediaPlayer = MediaPlayer.create(context, songs.get(getLayoutPosition()).getUri());
-                }
-            mediaPlayer.start();
+//                if (mediaPlayer != null) {
+//                    mediaPlayer.reset();
+//                    try {
+//                        mediaPlayer.setDataSource(context, songs.get(getLayoutPosition()).getUri());
+//                        mediaPlayer.prepare();
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//                else {
+//                    mediaPlayer = MediaPlayer.create(context, songs.get(getLayoutPosition()).getUri());
+//                }
+//            mediaPlayer.start();
+            Uri uri = songs.get(getLayoutPosition()).getUri();
+            String title =  songs.get(getLayoutPosition()).getTitle();
+            int imageId = songs.get(getLayoutPosition()).getImageResourceId();
+            Bundle bundle = new Bundle();
+            bundle.putString("songUri", uri.toString());
+            bundle.putString("songTitle", title);
+            bundle.putInt("songImageId", imageId);
+            Navigation.findNavController(itemView).navigate(R.id.action_nav_songs_to_nav_playback, bundle);
         }
     }
 }

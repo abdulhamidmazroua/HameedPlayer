@@ -56,8 +56,8 @@ public class PlaylistFragment extends Fragment implements PlaylistAdapter.ClickL
     void addPlaylist(String name, String description) {
         // Generating a random image for the playlist
         Random random = new Random();
-        int n = random.nextInt(4);
-        TypedArray playlistImageResources = getActivity().getResources().obtainTypedArray(R.array.playlists_images);
+        int n = random.nextInt(6);
+        TypedArray playlistImageResources = getActivity().getResources().obtainTypedArray(R.array.songs_images);
         // Adding the playlist object to the ArrayList
         playlists.add(new Playlist(name, description, playlistImageResources.getResourceId(n, 0)));
         playlistAdapter.notifyItemInserted(playlists.size());

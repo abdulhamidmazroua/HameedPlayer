@@ -9,7 +9,15 @@
         android:id="@+id/nav_songs"
         android:name="com.mido.hameedplayer.ui.songs.SongsFragment"
         android:label="@string/menu_songs"
-        tools:layout="@layout/fragment_songs" />
+        tools:layout="@layout/fragment_songs" >
+        <action
+            android:id="@+id/action_nav_songs_to_nav_playback"
+            app:destination="@id/nav_playback"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit" />
+    </fragment>
     <fragment
         android:id="@+id/nav_playlist"
         android:name="com.mido.hameedplayer.ui.Playlists.PlaylistFragment"
@@ -27,4 +35,18 @@
         android:name="com.mido.hameedplayer.ui.settings.SettingsFragment"
         android:label="@string/menu_settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/nav_playback"
+        android:name="com.mido.hameedplayer.ui.songs.PlaybackFragment"
+        tools:layout="@layout/fragment_playback" >
+<!--        <argument-->
+<!--            android:name="songUri"-->
+<!--            app:argType="string" />-->
+<!--        <argument-->
+<!--            android:name="songTitle"-->
+<!--            app:argType="string" />-->
+<!--        <argument-->
+<!--            android:name="songImageId"-->
+<!--            app:argType="integer" />-->
+    </fragment>
 </navigation>
